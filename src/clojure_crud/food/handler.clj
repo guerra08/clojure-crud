@@ -16,3 +16,9 @@
     (if (nil? food)
       (r/not-found {:error (str "Food with id " id " not found")})
       (r/response food))))
+
+(defn delete-food [req]
+  (let [id (:id (:path-params req))]
+    (if (= 0 (:next.jdbc/update-count (fr/delete-by-id id)))
+      (r/not-found "Not found")
+      (r/response "Deleted"))))

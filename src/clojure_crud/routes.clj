@@ -7,4 +7,5 @@
              :post {:parameters {:body Food}
                     :handler    fh/post-food}}]
    ["/food/:id" {:parameters {:path {:id int?}}
-                 :get        {:handler fh/get-food-by-id}}]])
+                 :get        {:handler fh/get-food-by-id}
+                 :delete     {:handler fh/delete-food}}]])

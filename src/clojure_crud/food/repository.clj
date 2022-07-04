@@ -22,3 +22,8 @@
   [id]
   (s/get-by-id ds :food id
                {:builder-fn rs/as-unqualified-lower-maps}))
+
+(defn delete-by-id 
+  "Deletes by id"
+  [id]
+  (s/delete! ds :food {:id id}))
