@@ -4,8 +4,10 @@
             [org.httpkit.server :as h]
             [reitit.coercion.malli :as ma]
             [reitit.ring :refer [ring-handler router]]
-            [reitit.ring.coercion :refer [coerce-request-middleware
+            [reitit.ring.coercion :refer [coerce-exceptions-middleware
+                                          coerce-request-middleware
                                           coerce-response-middleware]]
+            [reitit.ring.middleware.exception :refer [exception-middleware]]
             [reitit.ring.middleware.muuntaja :refer [format-negotiate-middleware
                                                      format-request-middleware
                                                      format-response-middleware]]))
@@ -20,8 +22,10 @@
             :middleware [format-negotiate-middleware
                          format-response-middleware
                          format-request-middleware
+                         exception-middleware
                          coerce-request-middleware
-                         coerce-response-middleware]}}))
+                         coerce-response-middleware
+                         coerce-exceptions-middleware]}}))
 
 (def app
   (ring-handler app-router {:keywords? true :bigdecimals? true}))

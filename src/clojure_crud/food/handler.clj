@@ -11,7 +11,6 @@
   (r/response (fr/get-foods)))
 
 (defn get-food-by-id [req]
-  (println req)
   (let [id (:id (:path-params req))
         food (fr/get-by-id id)]
     (if (nil? food)
