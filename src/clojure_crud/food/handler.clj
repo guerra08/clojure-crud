@@ -5,7 +5,7 @@
 (defn post-food [{:keys [parameters]}]
   (let [food (:body parameters)
         id (:id (fr/insert-food food))]
-    (r/created (str "/food/" id) "Created")))
+    (r/created (str "/food/" id))))
 
 (defn get-all-foods [_]
   (r/response (fr/get-foods)))
@@ -21,4 +21,4 @@
   (let [id (:id (:path-params req))]
     (if (= 0 (:next.jdbc/update-count (fr/delete-by-id id)))
       (r/not-found "Not found")
-      (r/response "Deleted"))))
+      (r/status 204))))
