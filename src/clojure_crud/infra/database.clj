@@ -1,4 +1,4 @@
-(ns clojure-crud.persistence.database
+(ns clojure-crud.infra.database
   (:require [next.jdbc :as jdbc]))
 
 (def db {:dbtype "h2" :dbname "foodyworld"})

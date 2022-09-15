@@ -1,5 +1,5 @@
 (ns clojure-crud.food.repository
-  (:require [clojure-crud.persistence.database :refer [ds]]
+  (:require [clojure-crud.infra.database :refer [ds]]
             [next.jdbc :as j]
             [next.jdbc.result-set :as rs]
             [next.jdbc.sql :as s]))
